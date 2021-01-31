@@ -1,0 +1,33 @@
+#boxes{
+    display: flex;
+    background-color: lightblue;
+    height: 420px;
+    width: 845px;
+    flex-wrap: wrap;
+}
+#footer{
+    width: 845px;
+    display: flex;
+    background-color: lightpink;
+    justify-content: space-around;
+}
+#restore{
+    background-color: lightgreen;
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.img_box{
+    border: 3px solid black;
+    margin: 0px 5px 5px 0px;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+}
+
+img{
+    width: 200px;
+}
