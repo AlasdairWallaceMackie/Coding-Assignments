@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hover In/Out</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div id="content">
+        <img src="front.png" back-view="back.png">
+        <img src="front.png" back-view="back.png">
+        <img src="front.png" back-view="back.png">
+        <img src="front.png" back-view="back.png">
+    </div>
+
+
+<script>
+    $('img').hover(function(){
+        swapImg( $(this), $(this).attr('src'), $(this).attr('back-view') );
+    },
+    function(){
+        swapImg( $(this), $(this).attr('src'), $(this).attr('back-view') );
+    });
+
+function swapImg(object, front, back){
+    object.attr('src', back );
+    object.attr('back-view', front);
+}
+
+</script>
+</body>
+</html>
