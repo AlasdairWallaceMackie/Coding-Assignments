@@ -1,0 +1,55 @@
+<html>
+<head>
+    <title>Sortable Ninja</title>
+
+</head>
+<body>
+    <ul id="sortable">
+        <li><img src="sorting_images/sort1.png"></li>
+        <li><img src="sorting_images/sort2.png"></li>
+        <li><img src="sorting_images/sort3.png"></li>
+        <li><img src="sorting_images/sort4.png"></li>
+        <li><img src="sorting_images/sort5.png"></li>
+    </ul>
+    <br>
+    <button>Randomize</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<style>
+    ul{
+        list-style-type: none;
+    }
+</style>
+<script>
+    $('#sortable').sortable();
+    $('#sortable').disableSelection();
+
+    $('button').click(function(){
+
+        $('#sortable').empty();
+
+        var arr = [
+            "sort1.png",
+            "sort2.png",
+            "sort3.png",
+            "sort4.png",
+            "sort5.png"
+        ]
+        var randIndex = 0, fileName = "";
+
+        while(arr.length>0){
+            randIndex = Math.floor( Math.random() * arr.length );
+            fileName = arr.splice(randIndex,1);
+            $('#sortable').append('<li><img src="sorting_images/' + fileName + '"></li>');
+        }
+    });
+
+
+
+
+
+</script>
+</body>
+</html>
