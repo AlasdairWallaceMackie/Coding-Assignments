@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Data Validations</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <h1>Fill out this form:</h1>
+    <br>
+    <form>
+        <p>Depart Date: <input type="text" id="depart_date"></p>
+        <p>Return Date: <input type="text" id="return_date"></p>
+        <p>Name: <input type="text" id="name" placeholder="Your name"></p>
+        <input type="submit" class="inline">
+    </form>
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/le-frog/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+<script>
+    
+
+    $(document).ready(function(){
+        $("#depart_date").datepicker();
+        $("#return_date").datepicker();
+
+        var currentDate = new Date();
+        
+        var departDate = currentDate.getMonth()+1 + "/" + (parseInt(currentDate.getDay())+1) + "/" + currentDate.getFullYear();
+        var returnDate = currentDate.getMonth()+1 + "/" + (parseInt(currentDate.getDay())+8) + "/" + currentDate.getFullYear();
+        
+        console.log("DepartDate: " + departDate);
+        console.log("ReturnDate: " + returnDate);
+        
+        $('#depart_date').datepicker("setDate", departDate);
+        $('#return_date').datepicker("setDate", returnDate);
+
+        $("#return_date").datepicker({
+
+            setDate: departDate
+        });
+
+        $('form').submit(function(){
+
+
+        $('.error').remove();
+        console.log("DepartDate: " + departDate);
+        console.log("ReturnDate: " + returnDate);
+
+        var nameValue = $('#name').val();
+        
+        if(nameValue!=0){
+            console.log("NameValue = " + nameValue);
+            alert("Thank you " + nameValue + " for submitting this form. You will be departing on " + departDate + " and returning on " + returnDate + ".");
+        }
+        else{
+            $('form').append("<p class= 'error inline'>You must enter a name</p>")
+        }        
+        return false;
+        })
+    });
+
+    
+</script>
+<style>
+    input, button{
+        margin: 10px 0px;
+    }
+    .error{
+        color: red
+    }
+    .inline{
+        display: inline-block;
+    }
+</style>
+</body>
+</html>
