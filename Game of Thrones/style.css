@@ -1,0 +1,31 @@
+#container{
+    padding: 10px;
+}
+#header{
+    display: flex;
+    justify-content: space-between;
+}
+    #header img{
+        display: inline-block;
+        width: 20%;
+        margin: 5px;
+    }
+main{
+    margin-top: 100px;
+    margin-left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+    justify-content: center;
+    border: 3px solid black;
+}
+#house_details{
+
+
+
+}
+
+h3{
+    margin-left: 20px;
+    width: 100%;
+}
